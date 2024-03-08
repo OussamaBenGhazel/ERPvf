@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Conge {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/css/style.css">
+{% endblock %}
+
+{% block body %}
+    <h1 class="title">Conge List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_debut</th>
+                <th>Date_fin</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for conge in conges %}
+            <tr>
+                <td>{{ conge.id }}</td>
+                <td>{{ conge.dateDebut ? conge.dateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ conge.dateFin ? conge.dateFin|date('Y-m-d') : '' }}</td>
+                <td>{{ conge.type }}</td>
+                <td>
+                <a href="{{ path('app_conge_show', {'id': conge.id}) }}"><button type="button" class="btn btn-info">View Conge</button></a>
+                <a href="{{ path('app_conge_edit', {'id': conge.id}) }}"><button type="button" class="btn btn-secondary">Edit Conge</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no Conges Yet</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="button-container">
+    <a href="{{ path('app_conge_new') }}">Add New Conge</a>
+    </div>
+{% endblock %}

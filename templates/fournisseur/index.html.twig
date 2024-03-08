@@ -1,0 +1,244 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseur index{% endblock %}
+
+{% block body %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Sidenav Light - SB Admin</title>
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="{{ path('app_home') }}">SCHOLAR CIRCLE</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Core</div>
+                        <a class="nav-link" href="{{ path('app_home_eployee') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        
+                        <div class="sb-sidenav-menu-heading">Interface</div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Layouts
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                
+                                <a class="nav-link" href="{{ path('app_fournisseur_index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div> <!-- Adjust icon as needed -->
+                                Fournisseur</a>
+                                <a class="nav-link" href="{{ path('app_client_index') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div> <!-- Adjust icon as needed -->
+                                Client</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Pages
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                    Authentication
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="{{ path('app_password_empl') }}">Forgot Password</a>
+                                    </nav>
+                                </div>
+                                
+                            </nav>
+                        </div>
+                        <div class="sb-sidenav-menu-heading">Addons</div>
+                        <a class="nav-link" href="{{ path('app_charts_empl') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Charts
+                        </a>
+                        <a class="nav-link" href="{{ path('app_tables_empl') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                            Tables
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Responsable Fournisseur
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                   
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="{{ path('app_home_eployee') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Fournisseur</li>
+                         <li class="breadcrumb-item active">Client</li>
+                    </ol>
+                    <h1 class="fournisseur-heading">Fournisseur index</h1>
+
+                    <!-- PDF Button -->
+                    <a href="{{ path('app_fournisseur_pdf', {'type': 'all'}) }}" class="btn btn-primary mb-3" target="_blank">Download All Pages PDF</a>
+
+                    {# Link to download PDF for current page #}
+                    <a href="{{ path('app_fournisseur_pdf', {'type': 'current', 'page': pagination.currentPageNumber}) }}" class="btn btn-primary mb-3" target="_blank">Download Current Page PDF</a>
+
+                    <!-- Search Form -->
+                    <form class="search-form mb-3" action="{{ path('search_fournisseur') }}" method="GET">
+                        <input type="text" id="searchInput" name="query" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </form>
+
+                    <!-- Table -->
+                    <table class="table">
+                        <!-- Table Header -->
+                        <thead>
+                            <tr>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'id', 'direction': sort == 'id' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Id {% if sort == 'id' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'nom', 'direction': sort == 'nom' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Nom {% if sort == 'nom' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'adresse', 'direction': sort == 'adresse' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Adresse {% if sort == 'adresse' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'numdetel', 'direction': sort == 'numdetel' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Numero de telephone {% if sort == 'numdetel' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'email', 'direction': sort == 'email' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Email {% if sort == 'email' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>
+                                    <a href="{{ path('app_fournisseur_index', {'sort': 'societe', 'direction': sort == 'societe' and direction == 'asc' ? 'desc' : 'asc'}) }}">
+                                        Societe {% if sort == 'societe' %}
+                                            <span class="sort-icon {% if direction == 'asc' %}asc{% else %}desc{% endif %}"></span>
+                                        {% endif %}
+                                    </a>
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Table Body -->
+                        <tbody>
+                            {% for fournisseur in pagination %}
+                                <tr>
+                                    <td>{{ fournisseur.id }}</td>
+                                    <td>{{ fournisseur.nom }}</td>
+                                    <td>{{ fournisseur.adresse }}</td>
+                                    <td>{{ fournisseur.numdetel }}</td>
+                                    <td>{{ fournisseur.email }}</td>
+                                    <td>{{ fournisseur.societe }}</td>
+                                    <td>
+                                        <a href="{{ path('app_fournisseur_show', {'id': fournisseur.id}) }}" class="action-button">Show</a>
+                                        <a href="{{ path('app_fournisseur_edit', {'id': fournisseur.id}) }}" class="action-button">Edit</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="7">No records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <!-- Create Button -->
+                    <a href="{{ path('app_fournisseur_new') }}" class="create-new-btn">Create New</a>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Pagination">
+                        <ul class="pagination">
+                            {% if pagination.currentPageNumber != 1 %}
+                                <li class="page-item"><a class="page-link" href="{{ path('app_fournisseur_index', {'page': 1, 'sort': sort, 'direction': direction}) }}">First</a></li>
+                                <li class="page-item"><a class="page-link" href="{{ path('app_fournisseur_index', {'page': pagination.currentPageNumber - 1, 'sort': sort, 'direction': direction}) }}">Previous</a></li>
+                            {% endif %}
+                            {% for page in 1..pagination.pageCount %}
+                                <li class="page-item{% if page == pagination.currentPageNumber %} active{% endif %}"><a class="page-link" href="{{ path('app_fournisseur_index', {'page': page, 'sort': sort, 'direction': direction}) }}">{{ page }}</a></li>
+                            {% endfor %}
+                            {% if pagination.currentPageNumber != pagination.pageCount %}
+                                <li class="page-item"><a class="page-link" href="{{ path('app_fournisseur_index', {'page': pagination.currentPageNumber + 1, 'sort': sort, 'direction': direction}) }}">Next</a></li>
+                                <li class="page-item"><a class="page-link" href="{{ path('app_fournisseur_index', {'page': pagination.pageCount, 'sort': sort, 'direction': direction}) }}">Last</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    </body>
+    </html>
+{% endblock %}
